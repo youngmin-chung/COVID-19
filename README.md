@@ -1,13 +1,12 @@
-# COVID-19
-JS_HTML_CSS_Project
+# COVID-19 STATS PROJECT
+Use Vanilla JS, HTML and CSS
+An API from Postman's open source, created COVID-19 STATS CHART.
 
-Using an API from Postman's open source, created COVID-19 STATS CHART.
-
-# improvement point
+# Improvement point
 - Open source API doesn't support some countries data
   => solve it using Try-catch
   => looking for another API
 
-# next plan
+# Next plan
 - develop this version to MERN stack 
 - publishing to heroku.app
