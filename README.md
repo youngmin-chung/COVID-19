@@ -4,8 +4,7 @@ An API from Postman's open source, created COVID-19 STATS CHART.
 
 # Improvement point
 - Open source API doesn't support some countries data
-  => solve it using Try-catch
-  => looking for another API
+  => solve it using Try-catch or looking for another API
 
 # Next plan
 - develop this version to MERN stack 
