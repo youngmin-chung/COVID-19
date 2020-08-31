@@ -3,260 +3,306 @@
 /*                                          *\
 \*----+----+----+----+----+----+----+----+--*/
 @font-face {
-  font-family: "Aveny T WEB";
-  src: url("./Aveny\ T\ WEB\ Fonts.woff") format(woff);
+    font-family: "Aveny T WEB";
+    src: url("./Aveny\ T\ WEB\ Fonts.woff") format(woff);
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*                  GENERAL                 */
 /*                                          *\
 \*----+----+----+----+----+----+----+----+--*/
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Aveny T WEB", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Aveny T WEB", sans-serif;
 }
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 .hide {
-  display: none;
+    display: none;
 }
 .fadeIn {
-  animation: fade 0.5s ease-in-out;
+    animation: fade 0.5s ease-in-out;
 }
 @keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*                  HEADER                  */
 /*                                          *\
 \*----+----+----+----+----+----+----+----+--*/
 header {
-  display: flex;
-  align-items: center;
-  /* The justify-content property aligns the flexible container's items 
+    display: flex;
+    align-items: center;
+    /* The justify-content property aligns the flexible container's items 
        when the items do not use all available space on the main-axis (horizontally) */
-  justify-content: space-between;
-  max-width: 1200px;
-  width: 100%;
-  height: 60px;
-  margin: 0 auto;
-  background-color: #f3f2f2;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    background-color: #f3f2f2;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+--  LOGO  --+----+----+----*/
 .logo {
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
 }
 .logo img {
-  width: 60px;
+    width: 60px;
 }
 .logo p {
-  font-weight: bold;
-  color: #000;
+    font-weight: bold;
+    color: #000;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+--  NAV   --+----+----+----*/
 nav ul {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 nav ul li {
-  list-style: none;
+    list-style: none;
 }
 nav ul li:last-child {
-  padding-right: 20px;
+    padding-right: 20px;
 }
 nav ul li a {
-  text-decoration: none;
-  color: #000;
-  padding: 10px;
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*                   MAIN                   */
 /*                                          *\
 \*----+----+----+----+----+----+----+----+--*/
 main {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+---Background Image---+----+----*/
 .stats {
-  width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("../img/bg.jpg");
-  background-size: cover;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("../img/bg.jpg");
+    background-size: cover;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+ Latest Report --+----+----*/
-.latest-report {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 50px;
-  color: #fff;
-}
 
+.latest-report {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    color: #fff;
+}
 .country,
 .total-cases,
 .active,
 .recovered,
 .deaths {
-  height: 100px;
+    height: 100px;
 }
 
 .name {
-  font-size: 2.2em;
-  color: #be66;
-  font-weight: bold;
+    font-size: 2.2em;
+    color: #be66;
+    font-weight: bold;
+    max-width: 300px;
 }
 .change-country {
-  cursor: pointer;
+    cursor: pointer;
 }
 .title {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 .total-cases .value {
-  font-size: 2em;
-  font-weight: bold;
+    font-size: 2em;
+    font-weight: bold;
 }
 .active .value {
-  font-size: 2em;
-  font-weight: bold;
-  color: #0e00f0;
+    font-size: 2em;
+    font-weight: bold;
+    color: #0e00f0;
 }
 .recovered .value {
-  font-size: 2em;
-  font-weight: bold;
-  color: #009688;
+    font-size: 2em;
+    font-weight: bold;
+    color: #009688;
 }
 .deaths .value {
-  font-size: 2em;
-  font-weight: bold;
-  color: #f44336;
+    font-size: 2em;
+    font-weight: bold;
+    color: #f44336;
 }
 .new-value {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+---- Chart +-----+----+----*/
 .chart {
-  width: 80%;
-  height: 70vh;
-  min-height: 500px;
-  margin: 0 auto;
-  padding: 50px 0;
+    width: 80%;
+    height: 65vh;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 1em 0;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+---- Search Country --+----+----*/
 .search-country {
-  position: relative;
-  top: 10px;
-  left: -110px;
+    position: relative;
+    top: 10px;
+    left: -110px;
 }
 .search-box {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 300px;
-  height: 30px;
-  background-color: #111;
-  /* The z-index property specifies the stack order of an element.
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    height: 30px;
+    background-color: #111;
+    /* The z-index property specifies the stack order of an element.
        An element with greater stack order is always in front of an element with a lower stack order. */
-  z-index: 1;
+    z-index: 1;
 }
 .search-box input {
-  width: 280px;
-  height: 25px;
-  border: none;
-  background-color: transparent;
-  color: #fff;
-  padding-left: 15px;
-  font-size: 1.1em;
+    width: 280px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    padding-left: 15px;
+    font-size: 1.1em;
 }
 .search-box img {
-  width: 20px;
-  padding-right: 5px;
-  cursor: pointer;
+    width: 20px;
+    padding-right: 5px;
+    cursor: pointer;
 }
 .country-list {
-  display: flex;
-  position: absolute;
-  top: 30px;
-  width: 300px;
-  height: 300px;
-  background-color: #111;
-  opacity: 0.9;
-  overflow-y: scroll;
+    display: flex;
+    position: absolute;
+    top: 30px;
+    width: 300px;
+    height: 300px;
+    background-color: #111;
+    opacity: 0.9;
+    overflow-y: scroll;
 }
 .country-list ul {
-  width: 100%;
+    width: 100%;
 }
 .country-list ul li {
-  list-style: none;
-  cursor: pointer;
-  padding: 10px;
-  color: #fff;
+    list-style: none;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
 }
 .country-list ul li:hover {
-  border-left: 1px solid #fff;
+    border-left: 1px solid #fff;
 }
 .country-list::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 .country-list::-webkit-scrollbar-track {
-  background: #111;
+    background: #111;
 }
 .country-list::-webkit-scrollbar-thumb {
-  background: #f1f1f1;
+    background: #f1f1f1;
 }
 .country-list::-webkit-scrollbar-thumb:hover {
-  background: #fff;
+    background: #fff;
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*                  FOOTER                  */
 /*                                          *\
 \*----+----+----+----+----+----+----+----+--*/
 footer {
-  max-width: 1200px;
-  height: 60px;
-  margin: 0 auto;
-  background-color: #000;
+    max-width: 1200px;
+    height: 1em;
+    margin: 0 auto;
+    background-color: #000;
 }
 .footer-container {
-  height: 100%;
-  display: flex;
-  justify-content: center;
+    height: 30%;
+    display: flex;
+    justify-content: center;
 }
 .copyright {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .copyright p {
-  color: #fff;
+    color: #fff;
 }
+
+/*----+----+----+----+----+----+----+---\
+\*----+----+----+ API LINK --+----+----*/
+
+.api-info p {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+    padding: 0 auto;
+}
+
+.api-info a,
+.api-info a:visited {
+    text-decoration: none;
+    color: #009688;
+}
+
+/*----+----+----+----+----+----+----+--\
+\*----+----+----+ WARNING --+----+----*/
+.warning h2 {
+    text-align: center;
+    width: 50%;
+    margin: 1em auto;
+    color: #fff;
+    padding: 1em auto;
+    position: relative;
+    background: #bd0000;
+    border-radius: 0.4em;
+}
+
+.warning h2:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 0.063em solid transparent;
+    border-top-color: #bd0000;
+    border-bottom: 0;
+    margin-left: -0.062em;
+    margin-bottom: -0.062em;
+}
+
 /*----+----+----+----+----+----+----+----+--*\
 \*      Screen Width less than 600px        */
 /*                                          *\
 \*----+----+----+----+----+----+----+----+--*/
 @media screen and (max-width: 600px) {
-  .latest-report {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .latest-report {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
