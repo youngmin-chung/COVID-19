@@ -24,6 +24,8 @@ let app_data = [],
     jsonData;
 
 const api_url_by_country = "https://api.covid19api.com/countries";
+const api_country_name =
+    "http://api.ipstack.com/check?access_key=cbc5a92314e1fe900ede483f777ccc05";
 
 async function fetchCountryInfos() {
     var tmp = [];
@@ -121,9 +123,7 @@ async function fetchCountryInfos() {
 
 fetchCountryInfos();
 
-// GET USERS COUNTRY NAME
-user_country = geoplugin_countryName();
-
+// FETCH DATA FOR GETTING CURRENT COUNTRY INFO
 function fetchData(user_country) {
     country_name_element.innerHTML = "Loading...";
     document.getElementById("warning").classList.add("hide");
@@ -168,7 +168,20 @@ function fetchData(user_country) {
         });
 }
 
-fetchData(user_country);
+// GET USERS COUNTRY NAME
+function fetchGetCountryName() {
+    fetch(api_country_name)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            countryInfo = data;
+            user_country = countryInfo.country_name;
+            fetchData(user_country);
+        });
+}
+
+fetchGetCountryName();
 
 // UPDATE UI FUNCTION
 function updateUI() {
