@@ -25,7 +25,7 @@ let app_data = [],
 
 const api_url_by_country = "https://api.covid19api.com/countries";
 const api_country_name =
-    "https://api.ipstack.com/check?access_key=cbc5a92314e1fe900ede483f777ccc05";
+    "http://api.ipstack.com/check?access_key=cbc5a92314e1fe900ede483f777ccc05";
 
 async function fetchCountryInfos() {
     var tmp = [];
