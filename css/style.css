@@ -10,15 +10,48 @@
 \*                  GENERAL                 */
 /*                                          *\
 \*----+----+----+----+----+----+----+----+--*/
-* {
-    padding: 0;
-    margin: 0;
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    font-family: "Aveny T WEB", sans-serif;
 }
+
+:root {
+    --font-family-primary: "Aveny T WEB", sans-serif;
+    --font-family-secondary: "Source Code Pro", monospace;
+
+    --font-weight-regular: 300;
+    --font-weight-bold: 900;
+
+    --color-light: #fff;
+    --color-black: #111;
+    --color-accent: #009688;
+    --color-blue: #0e00f0;
+    --color-red: #f44336;
+    --color-kaki: #be66;
+
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.25rem;
+    --font-size-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+        0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+}
+
 html {
     font-size: 16px;
 }
+
+body {
+    background: var(--color-light);
+    color: var(--color-dark);
+    margin: 0;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-body);
+}
+
 .hide {
     display: none;
 }
@@ -96,6 +129,13 @@ main {
         url("../img/bg.jpg");
     background-size: cover;
 }
+
+/* .global-stats {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("../img/bg.jpg");
+    background-size: cover;
+} */
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+ Latest Report --+----+----*/
 
@@ -106,19 +146,20 @@ main {
     width: 80%;
     margin: 0 auto;
     padding-top: 50px;
-    color: #fff;
+    color: var(--color-light);
 }
+
 .country,
 .total-cases,
 .active,
 .recovered,
 .deaths {
-    height: 100px;
+    height: 6.25em;
 }
 
 .name {
-    font-size: 2.2em;
-    color: #be66;
+    font-size: var(--font-size-h2);
+    color: var(--color-kaki);
     font-weight: bold;
     max-width: 300px;
 }
@@ -126,39 +167,51 @@ main {
     cursor: pointer;
 }
 .title {
-    font-size: 1.3em;
+    font-size: var(--font-size-h3);
 }
-.total-cases .value {
-    font-size: 2em;
+.total-cases .value,
+.global-total .value {
+    font-size: var(--font-size-h2);
     font-weight: bold;
 }
-.active .value {
-    font-size: 2em;
+.active .value,
+.global-active .value {
+    font-size: var(--font-size-h2);
     font-weight: bold;
-    color: #0e00f0;
+    color: var(--color-blue);
 }
-.recovered .value {
-    font-size: 2em;
+.recovered .value,
+.global-recovered .value {
+    font-size: var(--font-size-h2);
     font-weight: bold;
-    color: #009688;
+    color: var(--color-accent);
 }
-.deaths .value {
-    font-size: 2em;
+.deaths .value,
+.global-deaths .value {
+    font-size: var(--font-size-h2);
     font-weight: bold;
-    color: #f44336;
+    color: var(--color-red);
 }
 .new-value {
-    font-size: 1.3em;
+    font-size: var(--font-size-h3);
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+---- Chart +-----+----+----*/
 .chart {
-    width: 80%;
-    height: 65vh;
+    width: 90%;
+    height: 28vh;
     min-height: 400px;
     margin: 0 auto;
     padding: 1em 0;
 }
+.global-chart {
+    width: 80%;
+    height: 28vh;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+---- Search Country --+----+----*/
 .search-country {
@@ -173,7 +226,7 @@ main {
     justify-content: space-between;
     width: 300px;
     height: 30px;
-    background-color: #111;
+    background-color: var(--color-dark);
     /* The z-index property specifies the stack order of an element.
        An element with greater stack order is always in front of an element with a lower stack order. */
     z-index: 1;
@@ -183,9 +236,9 @@ main {
     height: 25px;
     border: none;
     background-color: transparent;
-    color: #fff;
+    color: var(--color-light);
     padding-left: 15px;
-    font-size: 1.1em;
+    font-size: var(--font-size-body);
 }
 .search-box img {
     width: 20px;
@@ -196,9 +249,9 @@ main {
     display: flex;
     position: absolute;
     top: 30px;
-    width: 300px;
+    width: 330px;
     height: 300px;
-    background-color: #111;
+    background-color: var(--color-dark);
     opacity: 0.9;
     overflow-y: scroll;
 }
@@ -209,22 +262,22 @@ main {
     list-style: none;
     cursor: pointer;
     padding: 10px;
-    color: #fff;
+    color: var(--color-light);
 }
 .country-list ul li:hover {
-    border-left: 1px solid #fff;
+    border-left: 1px solid var(--color-light);
 }
 .country-list::-webkit-scrollbar {
     width: 10px;
 }
 .country-list::-webkit-scrollbar-track {
-    background: #111;
+    background: var(--color-dark);
 }
 .country-list::-webkit-scrollbar-thumb {
     background: #f1f1f1;
 }
 .country-list::-webkit-scrollbar-thumb:hover {
-    background: #fff;
+    background: var(--color-light);
 }
 /*----+----+----+----+----+----+----+----+--*\
 \*                  FOOTER                  */
@@ -232,7 +285,7 @@ main {
 \*----+----+----+----+----+----+----+----+--*/
 footer {
     max-width: 1200px;
-    height: 1em;
+    height: 3em;
     margin: 0 auto;
     background-color: #000;
 }
@@ -241,31 +294,23 @@ footer {
     display: flex;
     justify-content: center;
 }
+
 .copyright {
     height: 30%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .copyright p {
-    color: #fff;
-}
-
-/*----+----+----+----+----+----+----+---\
-\*----+----+----+ API LINK --+----+----*/
-
-.api-info p {
     text-align: center;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    color: #fff;
+    color: var(--color-light);
     padding: 0 auto;
 }
-
-.api-info a,
-.api-info a:visited {
+.copyright a,
+.copyright a:visited {
     text-decoration: none;
-    color: #009688;
+    color: var(--color-accent);
 }
 
 /*----+----+----+----+----+----+----+--\
@@ -274,7 +319,7 @@ footer {
     text-align: center;
     width: 50%;
     margin: 1em auto;
-    color: #fff;
+    color: var(--color-light);
     padding: 1em auto;
     position: relative;
     background: #bd0000;

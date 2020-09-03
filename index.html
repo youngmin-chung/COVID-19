@@ -12,14 +12,6 @@
                 <img src="./img/covid19_response_icon.svg" alt="logo" />
                 <p>&nbsp COVID-19<br />&nbsp STATS CHART</p>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Global</a></li>
-                    <li><a href="#">By Country</a></li>
-                    <li><a href="#">About Us</a></li>
-                </ul>
-            </nav>
         </header>
         <main>
             <div class="stats">
@@ -64,30 +56,60 @@
                         <div class="new-value">0</div>
                     </div>
                 </div>
-                <div class="api-info">
-                    <p>
-                        Data sources from
-                        <a
-                            href="https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest"
-                            >Coronavirus COVID19 API (covid19api.com) powered by
-                            POSTMAN</a
-                        >
-                        API
-                    </p>
-                </div>
+
                 <div class="warning hide" id="warning">
                     <h2>The country's information could not be found.</h2>
                 </div>
                 <div class="chart">
                     <canvas id="axes_line_chart"></canvas>
                 </div>
+
+                <div class="latest-report">
+                    <div class="global">
+                        <div class="name">Global</div>
+                    </div>
+                    <div class="global-total">
+                        <div class="title">Total</div>
+                        <div class="value">0</div>
+                        <div class="new-value">0</div>
+                    </div>
+                    <div class="global-active">
+                        <div class="title">Active</div>
+                        <div class="value">0</div>
+                        <div class="new-value">0</div>
+                    </div>
+                    <div class="global-recovered">
+                        <div class="title">Recovered</div>
+                        <div class="value">0</div>
+                        <div class="new-value">0</div>
+                    </div>
+                    <div class="global-deaths">
+                        <div class="title">Deaths</div>
+                        <div class="value">0</div>
+                        <div class="new-value">0</div>
+                    </div>
+                </div>
+
+                <div class="global-chart">
+                    <canvas id="pie_chart"></canvas>
+                </div>
             </div>
+            <div class="global-stats"></div>
         </main>
         <footer>
-            <div class="footer-container">
-                <div class="copyright">
-                    <p>Copyright © 2020 Youngmin Chung</p>
-                </div>
+            <div class="copyright">
+                <p>
+                    Copyright © 2020 Youngmin Chung & Inspired by CodeExplained
+                </p>
+                <p>
+                    Data sources from
+                    <a
+                        href="https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest"
+                        >Coronavirus COVID19 API powered by POSTMAN</a
+                    >
+                    API
+                </p>
+                <div class="api-info"></div>
             </div>
         </footer>
         <script

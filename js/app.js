@@ -8,10 +8,38 @@ const recovered_element = document.querySelector(".recovered .value");
 const new_recovered_element = document.querySelector(".recovered .new-value");
 const deaths_element = document.querySelector(".deaths .value");
 const new_deaths_element = document.querySelector(".deaths .new-value");
+
+const global_total_cases_element = document.querySelector(
+    ".global-total .value"
+);
+const global_total_daily_cases_element = document.querySelector(
+    ".global-total .new-value"
+);
+const global_total_active_element = document.querySelector(
+    ".global-active .value"
+);
+const global_daily_active_element = document.querySelector(
+    ".global-active .new-value"
+);
+const global_total_recovered_element = document.querySelector(
+    ".global-recovered .value"
+);
+const global_daily_recovered_element = document.querySelector(
+    ".global-recovered .new-value"
+);
+const global_total_death_element = document.querySelector(
+    ".global-deaths .value"
+);
+const global_daily_death_element = document.querySelector(
+    ".global-deaths .new-value"
+);
+
 const ctx = document.getElementById("axes_line_chart").getContext("2d");
+const global_ctx = document.getElementById("pie_chart").getContext("2d");
 
 // APP VARIABLES
 let app_data = [],
+    global_app_data = [],
     cases_list = [],
     active_cases_list = [],
     recovered_list = [],
@@ -21,11 +49,22 @@ let app_data = [],
     country_list = [],
     user_country,
     country_code,
-    jsonData;
+    jsonData,
+    country_chart,
+    global_chart,
+    global_daily_confirmed = "",
+    global_daily_death = "",
+    global_daily_recovered = "",
+    global_total_confirmed = "",
+    global_total_deaths = "",
+    global_total_recovered = "",
+    global_total_cases = "",
+    global_daily_cases = "";
 
 const api_url_by_country = "https://api.covid19api.com/countries";
 const api_country_name =
     "http://api.ipstack.com/check?access_key=cbc5a92314e1fe900ede483f777ccc05";
+const api_global = "https://api.covid19api.com/summary";
 
 async function fetchCountryInfos() {
     var tmp = [];
@@ -164,9 +203,37 @@ function fetchData(user_country) {
         .catch((error) => {
             country_name_element.innerHTML = user_country;
             document.getElementById("warning").classList.remove("hide");
-            my_chart.destroy();
+            country_chart.destroy();
         });
 }
+
+// FETCH GLOBAL DATA FOR GETTING CURRENT INFO
+function fetchGlobalData() {
+    // POSTMAN'S API
+    fetch(api_global)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            global_app_data = data;
+
+            global_daily_confirmed = global_app_data.Global.NewConfirmed;
+            global_daily_death = global_app_data.Global.NewDeaths;
+            global_daily_recovered = global_app_data.Global.NewRecovered;
+
+            global_total_confirmed = global_app_data.Global.TotalConfirmed;
+            global_total_deaths = global_app_data.Global.TotalDeaths;
+            global_total_recovered = global_app_data.Global.TotalRecovered;
+        })
+        .then(() => {
+            updateGlobalUI();
+        })
+        .catch((error) => {
+            alert(error);
+        });
+}
+
+fetchGlobalData();
 
 // GET USERS COUNTRY NAME
 function fetchGetCountryName() {
@@ -187,6 +254,79 @@ fetchGetCountryName();
 function updateUI() {
     updateStats();
     axesLinearChart();
+}
+
+// UPDATE UI FUNCTION FOR GLOBAL
+function updateGlobalUI() {
+    updateGlobalStats();
+    axesGlobalLinearChart();
+}
+
+function updateGlobalStats() {
+    global_daily_confirmed = global_app_data.Global.NewConfirmed;
+    global_daily_death = global_app_data.Global.NewDeaths;
+    global_daily_recovered = global_app_data.Global.NewRecovered;
+
+    global_total_confirmed = global_app_data.Global.TotalConfirmed;
+    global_total_deaths = global_app_data.Global.TotalDeaths;
+    global_total_recovered = global_app_data.Global.TotalRecovered;
+    global_daily_cases =
+        global_daily_confirmed + global_daily_death + global_daily_recovered;
+    global_total_cases =
+        global_total_confirmed + global_total_deaths + global_total_recovered;
+
+    // global total cases
+    global_total_cases_element.innerHTML = commafy(global_total_cases) || 0;
+    if (global_daily_cases < 0) {
+        global_total_daily_cases_element.innerHTML = `${
+            commafy(global_daily_cases) || 0
+        }`;
+    } else {
+        global_total_daily_cases_element.innerHTML = `+${
+            commafy(global_daily_cases) || 0
+        }`;
+    }
+
+    // global active cases
+    global_total_active_element.innerHTML =
+        commafy(global_total_confirmed) || 0;
+
+    if (global_daily_confirmed < 0) {
+        global_daily_active_element.innerHTML = `${
+            commafy(global_daily_confirmed) || 0
+        }`;
+    } else {
+        global_daily_active_element.innerHTML = `+${
+            commafy(global_daily_confirmed) || 0
+        }`;
+    }
+
+    // global death cases
+    global_total_death_element.innerHTML = commafy(global_total_deaths) || 0;
+
+    if (global_daily_death < 0) {
+        global_daily_death_element.innerHTML = `${
+            commafy(global_daily_death) || 0
+        }`;
+    } else {
+        global_daily_death_element.innerHTML = `+${
+            commafy(global_daily_death) || 0
+        }`;
+    }
+
+    // global recovered cases
+    global_total_recovered_element.innerHTML =
+        commafy(global_total_recovered) || 0;
+
+    if (global_daily_recovered < 0) {
+        global_daily_recovered_element.innerHTML = `${
+            commafy(global_daily_recovered) || 0
+        }`;
+    } else {
+        global_daily_recovered_element.innerHTML = `+${
+            commafy(global_daily_recovered) || 0
+        }`;
+    }
 }
 
 function updateStats() {
@@ -254,13 +394,12 @@ function commafy(num) {
 }
 
 // UPDATE CHART
-let my_chart;
 function axesLinearChart() {
-    if (my_chart) {
-        my_chart.destroy();
+    if (country_chart) {
+        country_chart.destroy();
     }
 
-    my_chart = new Chart(ctx, {
+    country_chart = new Chart(ctx, {
         type: "line",
         data: {
             datasets: [
@@ -301,9 +440,28 @@ function axesLinearChart() {
             ],
             labels: formattedDates,
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
+    });
+}
+function axesGlobalLinearChart() {
+    if (global_chart) {
+        global_chart.destroy();
+    }
+
+    global_chart = new Chart(global_ctx, {
+        type: "pie",
+        data: {
+            labels: ["Global Active", "Global Recovered", "Global Deaths"],
+            datasets: [
+                {
+                    label: "Global Daily Cases",
+                    data: [
+                        global_total_confirmed,
+                        global_total_recovered,
+                        global_total_deaths,
+                    ],
+                    backgroundColor: ["#0e00f0", "#009688", "#f44336"],
+                },
+            ],
         },
     });
 }
