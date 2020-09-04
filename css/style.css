@@ -125,7 +125,7 @@ main {
 \*----+----+---Background Image---+----+----*/
 .stats {
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
         url("../img/bg.jpg");
     background-size: cover;
 }
