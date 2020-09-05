@@ -48,7 +48,6 @@ let app_data = [],
     formattedDates = [],
     country_list = [],
     user_country,
-    country_code,
     jsonData,
     country_chart,
     global_chart,
@@ -62,8 +61,8 @@ let app_data = [],
     global_daily_cases = "";
 
 const api_url_by_country = "https://api.covid19api.com/countries";
-const api_country_name =
-    "http://api.ipstack.com/check?access_key=cbc5a92314e1fe900ede483f777ccc05";
+// const api_country_name =
+//     "http://api.ipstack.com/check?access_key=cbc5a92314e1fe900ede483f777ccc05";
 const api_global = "https://api.covid19api.com/summary";
 
 async function fetchCountryInfos() {
@@ -163,6 +162,7 @@ async function fetchCountryInfos() {
 fetchCountryInfos();
 
 // FETCH DATA FOR GETTING CURRENT COUNTRY INFO
+user_country = geoplugin_countryName();
 function fetchData(user_country) {
     country_name_element.innerHTML = "Loading...";
     document.getElementById("warning").classList.add("hide");
@@ -204,8 +204,11 @@ function fetchData(user_country) {
             country_name_element.innerHTML = user_country;
             document.getElementById("warning").classList.remove("hide");
             country_chart.destroy();
+            //alert(error);
         });
 }
+
+fetchData(user_country);
 
 // FETCH GLOBAL DATA FOR GETTING CURRENT INFO
 function fetchGlobalData() {
@@ -234,21 +237,6 @@ function fetchGlobalData() {
 }
 
 fetchGlobalData();
-
-// GET USERS COUNTRY NAME
-function fetchGetCountryName() {
-    fetch(api_country_name)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            countryInfo = data;
-            user_country = countryInfo.country_name;
-            fetchData(user_country);
-        });
-}
-
-fetchGetCountryName();
 
 // UPDATE UI FUNCTION
 function updateUI() {
