@@ -198,15 +198,15 @@ main {
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+---- Chart +-----+----+----*/
 .chart {
-    width: 90%;
-    height: 28vh;
+    width: 70%;
+    height: 35vh;
     min-height: 400px;
     margin: 0 auto;
     padding: 1em 0;
 }
 .global-chart {
-    width: 80%;
-    height: 28vh;
+    width: 70%;
+    height: 35vh;
     min-height: 400px;
     margin: 0 auto;
     padding: 1em 0;
