@@ -1,11 +1,19 @@
-# COVID-19 STATS PROJECT
-Use Vanilla JS, HTML and CSS
-An API from Postman's open source, created COVID-19 STATS CHART.
+# COVID-19 STATS PROJECT (http://youngminchung.com/COVID-19/)
 
-# Improvement point
-- Open source API doesn't support some countries data
-  => solve it using Try-catch or looking for another API
+[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
-# Next plan
-- develop this version to MERN stack 
-- publishing to heroku.app
+![](https://img.shields.io/badge/Inspired-CodeExplained-yellowgreen)
+![](https://img.shields.io/badge/API-POSTMAN(Coronavirus%20COVID19%20API)-orange)
+
+## Current country's stats
+* Get current location information using ip address from `ipstack.com`
+* Get each country's COVID19 information from `POSTMAN's API`
+
+## Images
+* Canada dated on 9/2
+<img src="https://github.com/youngmin-chung/capture/blob/master/COVID19_Capture01.PNG"/>
+
+* Global dated on 9/2
+<img src="https://github.com/youngmin-chung/capture/blob/master/COVID19_Capture02.PNG"/>
