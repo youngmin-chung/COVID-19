@@ -198,18 +198,35 @@ main {
 /*----+----+----+----+----+----+----+----+--*\
 \*----+----+----+---- Chart +-----+----+----*/
 .chart {
-    width: 70%;
-    height: 35vh;
-    min-height: 400px;
+    width: 90%;
+    height: 30vh;
+    min-height: 600px;
     margin: 0 auto;
     padding: 1em 0;
 }
 .global-chart {
-    width: 60%;
-    height: 35vh;
-    min-height: 400px;
+    width: 90%;
+    height: 30vh;
+    min-height: 600px;
     margin: 0 auto;
     padding: 1em 0;
+}
+
+@media screen and (max-height: 1080px) {
+    .chart {
+        width: 70%;
+        height: 35vh;
+        min-height: 400px;
+        margin: 0 auto;
+        padding: 1em 0;
+    }
+    .global-chart {
+        width: 60%;
+        height: 35vh;
+        min-height: 400px;
+        margin: 0 auto;
+        padding: 1em 0;
+    }
 }
 
 /*----+----+----+----+----+----+----+----+--*\
