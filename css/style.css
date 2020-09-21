@@ -368,3 +368,23 @@ footer {
         align-items: flex-start;
     }
 }
+
+/*----+----+----+----+----+----+----+----+--*\
+\*              Github link                 */
+/*                                          *\
+\*----+----+----+----+----+----+----+----+--*/
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0 3em;
+}
+
+.social-list__item {
+    margin: 0 0.5em;
+}
+
+.social-list__link {
+    margin-left: 0.5em;
+}
