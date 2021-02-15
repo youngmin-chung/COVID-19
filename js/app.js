@@ -179,7 +179,7 @@ function fetchData(user_country) {
         })
         .then((data) => {
             app_data = data;
-            for (var i = 40; i > 0; --i) {
+            for (var i = 30; i > 0; --i) {
                 cases_list.push(
                     parseInt(app_data[app_data.length - i].Confirmed)
                 );
@@ -472,5 +472,5 @@ const monthsNames = [
 function formatDate(dateString) {
     let date = new Date(dateString);
 
-    return `${date.getDate() + 1} ${monthsNames[date.getMonth() - 1]}`;
+    return `${date.getDate() + 1} ${monthsNames[date.getMonth()]}`;
 }
